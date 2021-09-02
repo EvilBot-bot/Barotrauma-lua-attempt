@@ -22,6 +22,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore LinuxSolution.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build LinuxSolution.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test LinuxSolution.sln --no-build --verbosity normal
