@@ -61,4 +61,5 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            barotrauma_lua_windows.zip
+            Barotrauma/bin/ReleaseWindows/netcoreapp3.1/win-x64/publish/barotrauma_lua_windows.zip
+            Barotrauma/bin/ReleaseLinux/netcoreapp3.1/linux-x64/publish/barotrauma_lua_linux.zip
