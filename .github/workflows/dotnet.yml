@@ -25,3 +25,11 @@ jobs:
       run: dotnet build LinuxSolution.sln --no-restore
     - name: Test
       run: dotnet test LinuxSolution.sln --no-build --verbosity normal
+    - name: Automatic Releases
+      uses: marvinpinto/action-automatic-releases@v1.2.1
+      with:
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: |
+            *
