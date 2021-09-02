@@ -25,6 +25,18 @@ jobs:
       run: dotnet build LinuxSolution.sln --no-restore
     - name: Test
       run: dotnet test LinuxSolution.sln --no-build --verbosity normal
+      
+    - name: Publish
+      run: dotnet publish Barotrauma/BarotraumaServer/WindowsServer.csproj -c Release -clp:"ErrorsOnly;Summary" --self-contained -r win-x64 \/p:Platform="x64"
+      
+    - name: Archive Release
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        filename: 'linux_release.zip'
+        #exclusions: '*.git* /*node_modules/* .editorconfig'
+        path: 'Barotrauma/bin/ReleaseWindows/netcoreapp3.1/win-x64/publish'
+        
     - name: Automatic Release
       uses: marvinpinto/action-automatic-releases@v1.2.1
       with:
@@ -33,4 +45,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            *
+            linux_release.zip
