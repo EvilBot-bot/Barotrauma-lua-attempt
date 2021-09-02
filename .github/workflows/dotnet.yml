@@ -26,16 +26,32 @@ jobs:
     - name: Test
       run: dotnet test LinuxSolution.sln --no-build --verbosity normal
       
-    - name: Publish
+    - name: Publish WindowsServer
       run: dotnet publish Barotrauma/BarotraumaServer/WindowsServer.csproj -c Release -clp:"ErrorsOnly;Summary" --self-contained -r win-x64 \/p:Platform="x64"
+    - name: Publish WindowsClient
+      run: dotnet publish Barotrauma/BarotraumaClient/WindowsClient.csproj -c Release -clp:"ErrorsOnly;Summary" --self-contained -r win-x64 \/p:Platform="x64"
+
+    - name: Publish LinuxServer
+      run: dotnet publish Barotrauma/BarotraumaServer/LinuxServer.csproj -c Release -clp:"ErrorsOnly;Summary" --self-contained -r linux-x64 \/p:Platform="x64"
+    - name: Publish LinuxClient
+      run: dotnet publish Barotrauma/BarotraumaClient/LinuxClient.csproj -c Release -clp:"ErrorsOnly;Summary" --self-contained -r linux-x64 \/p:Platform="x64"
+
       
-    - name: Archive Release
+    - name: Archive Windows Release
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
-        filename: 'linux_release.zip'
+        filename: 'barotrauma_lua_windows.zip'
         #exclusions: '*.git* /*node_modules/* .editorconfig'
-        path: 'Barotrauma/bin/ReleaseWindows/netcoreapp3.1/win-x64/publish'
+        directory: 'Barotrauma/bin/ReleaseWindows/netcoreapp3.1/win-x64/publish'
+        
+    - name: Archive Linux Release
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        filename: 'barotrauma_lua_linux.zip'
+        #exclusions: '*.git* /*node_modules/* .editorconfig'
+        directory: 'Barotrauma/bin/ReleaseLinux/netcoreapp3.1/linux-x64/publish'
         
     - name: Automatic Release
       uses: marvinpinto/action-automatic-releases@v1.2.1
@@ -45,4 +61,5 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            linux_release.zip
+            barotrauma_lua_windows.zip
+            barotrauma_lua_linux.zip
