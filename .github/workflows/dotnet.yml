@@ -61,5 +61,4 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
-            'barotrauma_lua_windows.zip'
-            'barotrauma_lua_linux.zip'
+            barotrauma_lua_windows.zip
