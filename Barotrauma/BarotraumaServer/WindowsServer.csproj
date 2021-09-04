@@ -12,6 +12,7 @@
     <AssemblyName>DedicatedServer</AssemblyName>
     <ApplicationIcon>..\BarotraumaShared\Icon.ico</ApplicationIcon>
     <Configurations>Debug;Release;Unstable</Configurations>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
