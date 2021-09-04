@@ -16,8 +16,8 @@ jobs:
       - name: Generate Documentation
         uses: FuLagann/csharp-docs-generator@v1.0
         with:
-          build-tasks: dotnet build LinuxSolution.sln
-          cleanup-tasks: dotnet clean LinuxSolution.sln
+          build-tasks: dotnet build WindowsSolution.sln
+          cleanup-tasks: dotnet clean WindowsSolution.sln
           binaries: Barotrauma/bin/DebugWindows/netcoreapp3.1/DedicatedServer.dll
           output-path: docs/api
           user-email: csharp.doc.gen@gmail.com
