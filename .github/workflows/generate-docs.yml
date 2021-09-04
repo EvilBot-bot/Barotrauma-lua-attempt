@@ -16,9 +16,9 @@ jobs:
       - name: Generate Documentation
         uses: FuLagann/csharp-docs-generator@v1.0
         with:
-          build-tasks: dotnet build WindowsSolution.sln
-          cleanup-tasks: dotnet clean WindowsSolution.sln
-          binaries: Barotrauma/bin/DebugWindows/netcoreapp3.1/DedicatedServer.dll
+          build-tasks: dotnet build Barotrauma/BarotraumaServer/WindowsServer.csproj
+          cleanup-tasks: dotnet clean Barotrauma/BarotraumaServer/WindowsServer.csproj
+          binaries: Barotrauma/bin/DebugWindows/netcoreapp3.1/DedicatedServer.dll, Barotrauma/bin/ReleaseWindows/netcoreapp3.1/DedicatedServer.dll
           output-path: docs/api
           user-email: csharp.doc.gen@gmail.com
           user-name: C# Document Generator
