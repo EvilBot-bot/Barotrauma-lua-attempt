@@ -26,12 +26,3 @@ jobs:
     - name: Test
       run: dotnet test LinuxSolution.sln --no-build --verbosity normal
       
-    - name: Generate Documentation
-      uses: FuLagann/csharp-docs-generator@v1.0
-      with:
-          build-tasks: dotnet build LinuxSolution.sln
-          cleanup-tasks: dotnet clean LinuxSolution.sln
-          binaries: Barotrauma/bin/DebugWindows/netcoreapp3.1/DedicatedServer.dll
-          output-path: docs/api
-          user-email: csharp.doc.gen@gmail.com
-          user-name: C# Document Generator
