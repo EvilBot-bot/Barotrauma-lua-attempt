@@ -8,7 +8,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: helix
+          path: Barotrauma-lua-attempt
+
 
       - uses: leafo/gh-actions-lua@v8.0.0
         with:
