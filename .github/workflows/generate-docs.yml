@@ -35,7 +35,7 @@ jobs:
         working-directory: luaforbarotrauma
         run: |
           mkdir docs/html
-          cp -v docs/* docs/html
+          cp -r -v docs/* docs/html
       - name: Deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'EvilBot-bot/Barotrauma-lua-attempt' && success()
         uses: peaceiris/actions-gh-pages@v3
