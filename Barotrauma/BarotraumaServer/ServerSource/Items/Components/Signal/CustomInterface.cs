@@ -70,7 +70,7 @@ namespace Barotrauma.Items.Components
                 {
                     msg.Write(customInterfaceElementList[i].Signal);
                 }
-                else if(customInterfaceElementList[i].ContinuousSignal)
+                else if (customInterfaceElementList[i].ContinuousSignal)
                 {
                     msg.Write(customInterfaceElementList[i].State);
                 }

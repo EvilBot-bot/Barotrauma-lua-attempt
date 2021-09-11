@@ -139,7 +139,6 @@ namespace Barotrauma
             CheckContentPackage();
 
             Lua = new LuaSetup();
-
         }
 
 

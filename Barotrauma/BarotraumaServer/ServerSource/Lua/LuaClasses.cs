@@ -9,9 +9,11 @@ using Barotrauma.Items.Components;
 using System.IO;
 using System.Net;
 using System.Linq;
+using System.Xml.Linq;
 
 namespace Barotrauma
 {
+
 	partial class LuaSetup
 	{
 		private static Vector2 CreateVector2(float x, float y)
@@ -39,13 +41,12 @@ namespace Barotrauma
 
 			public static List<Client> GetAllClients()
 			{
-
 				return GameMain.Server.ConnectedClients;
 			}
 
-			public static CharacterInfo CreateCharacterInfo(string speciesName, string name = "", JobPrefab jobPrefab = null, string ragdollFileName = null, int variant = 0, Rand.RandSync randSync = Rand.RandSync.Unsynced)
+			public static CharacterInfo CreateCharacterInfo(string speciesName, string name = "", JobPrefab jobPrefab = null, string ragdollFileName = null, int variant = 0, Rand.RandSync randSync = Rand.RandSync.Unsynced, string npcIdentifier = "")
 			{
-				return new CharacterInfo(speciesName, name, name, jobPrefab, ragdollFileName, variant, randSync);
+				return new CharacterInfo(speciesName, name, name, jobPrefab, ragdollFileName, variant, randSync, npcIdentifier);
 			}
 
 			public static void SetClientCharacter(Client client, Character character)
@@ -88,7 +89,7 @@ namespace Barotrauma
 
 			public static void SetSpectatorPos(Client client, Vector2 pos)
 			{
-				client.SpectatePos = pos;
+				
 			}
 
 			public static void SetRadioRange(Character character, float range)
@@ -106,12 +107,20 @@ namespace Barotrauma
  				}
 			}
 
-
+			public static bool CheckPermission(Client client, ClientPermissions permissions)
+			{
+				return client.Permissions.HasFlag(permissions);
+			}
 		}
 
 		public class LuaGame
 		{
 			LuaSetup env;
+
+			public LuaGame(LuaSetup e)
+			{
+				env = e;
+			}
 
 			public bool allowWifiChat = false;
 			public bool overrideTraitors = false;
@@ -119,11 +128,23 @@ namespace Barotrauma
 			public bool overrideSignalRadio = false;
 			public bool disableSpamFilter = false;
 
-			public LuaGame(LuaSetup e)
+			public bool RoundStarted
 			{
-				env = e;
+				get
+				{
+					return GameMain.Server.GameStarted;
+				}
 			}
 
+
+			public bool IsDedicated
+			{
+				get
+				{
+					return GameMain.Server.ServerPeer is LidgrenServerPeer;
+				}
+			}
+			
 			public static void SendMessage(string msg, ChatMessageType? messageType = null, Client sender = null, Character character = null)
 			{
 				GameMain.Server.SendChatMessage(msg, messageType, sender, character);
@@ -296,22 +317,32 @@ namespace Barotrauma
 
 			public static WifiComponent GetWifiComponent(Item item)
 			{
+				if (item == null) return null;
 				return item.GetComponent<WifiComponent>();
 			}
 
 			public static LightComponent GetLightComponent(Item item)
 			{
+				if (item == null) return null;
 				return item.GetComponent<LightComponent>();
 			}
 
 			public static CustomInterface GetCustomInterface(Item item)
 			{
+				if (item == null) return null;
 				return item.GetComponent<CustomInterface>();
 			}
 
 			public static Fabricator GetFabricatorComponent(Item item)
 			{
+				if (item == null) return null;
 				return item.GetComponent<Fabricator>();
+			}
+
+			public static Holdable GetHoldableComponent(Item item)
+			{
+				if (item == null) return null;
+				return item.GetComponent<Holdable>();
 			}
 
 			public static void DispatchRespawnSub()
@@ -345,6 +376,29 @@ namespace Barotrauma
 				return GameMain.Config.AllEnabledPackages.ToArray();
 			}
 			 
+			public static List<string> GetEnabledPackagesDirectlyFromFile()
+			{
+				List<string> enabledPackages = new List<string>();
+
+				XDocument doc = XMLExtensions.LoadXml("config_player.xml");
+				var contentPackagesElement = doc.Root.Element("contentpackages");
+
+				string coreName = contentPackagesElement.Element("core")?.GetAttributeString("name", "");
+				enabledPackages.Add(coreName);
+
+				XElement regularElement = contentPackagesElement.Element("regular");
+				List<XElement> subElements = regularElement?.Elements()?.ToList();
+
+				foreach (var subElement in subElements)
+				{
+					if (!bool.TryParse(subElement.GetAttributeString("enabled", "false"), out bool enabled) || !enabled)	{ continue; }
+
+					string name = subElement.GetAttributeString("name", null);
+					enabledPackages.Add(name);
+				}
+
+				return enabledPackages;
+			}
 		}
 
 
@@ -408,6 +462,16 @@ namespace Barotrauma
 			public static bool Exists(string path)
 			{
 				return File.Exists(path);
+			}
+
+			public static bool DirectoryExists(string path)
+			{
+				return Directory.Exists(path);
+			}
+
+			public static string[] GetDirectories(string path)
+			{
+				return Directory.GetDirectories(path);
 			}
 
 			public static string[] DirSearch(string sDir)
@@ -538,26 +602,24 @@ namespace Barotrauma
 				if (!hookFunctions.ContainsKey(name))
 					return null;
 
+				object lastResult = null;
+
 				foreach (HookFunction hf in hookFunctions[name].Values)
 				{
-					if (hf.name == name)
+					try
 					{
-						try
-						{
-							var result = env.lua.Call(hf.function, args);
-							if (result.IsNil() == false)
-							{
-								return result;
-							}
-						}
-						catch (Exception e)
-						{
-							env.HandleLuaException(e);
-						}
+						if (hf.function is Closure)
+							lastResult = env.lua.Call(hf.function, args);
+						// else if (hf.function is NLua.LuaFunction luaFunction)
+						//	lastResult = luaFunction.Call(args);
+					}
+					catch (Exception e)
+					{
+						env.HandleLuaException(e);
 					}
 				}
 
-				return null;
+				return lastResult;
 			}
 		}
 	}
