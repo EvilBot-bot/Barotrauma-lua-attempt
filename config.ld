@@ -1,6 +1,6 @@
 
 file = {
-
+    "oba.lua"
 }
 
 module_file = {
