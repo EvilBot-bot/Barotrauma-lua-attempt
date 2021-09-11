@@ -13,7 +13,6 @@ title = "Test 2"
 
 no_space_before_args = true
 style = "docs/css"
-template = "docs/templates"
 format = "markdown"
 ignore = true
 topics = "docs/manual"
