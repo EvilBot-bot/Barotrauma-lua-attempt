@@ -1,24 +1,43 @@
-on:
-  push:
-    branches:
-      - master
+name: Generate Docs
+on: [push, pull_request]
+
 jobs:
-  generate-docs:
-    runs-on: windows-latest
-    name: Generate Docs
+  docs:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - uses: actions/checkout@v2
+        with:
+          path: helix
+
+      - uses: leafo/gh-actions-lua@v8.0.0
+        with:
+          luaVersion: "5.2"
+
+      - uses: leafo/gh-actions-luarocks@v4.0.0
+
+      - name: Pull LDoc
         uses: actions/checkout@v2
-      - name: Setup .NET Core 3.1
-        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: "3.1.300"
-      - name: Generate Documentation
-        uses: FuLagann/csharp-docs-generator@v1.0
+          repository: impulsh/LDoc
+          path: ldoc
+
+      - name: Build LDoc
+        working-directory: ldoc
+        run: luarocks make
+
+      - name: Build docs
+        working-directory: helix
+        run: ldoc . --fatalwarnings
+
+      - name: Copy assets
+        working-directory: helix
+        run: |
+          cp -v docs/css/* docs/html
+          cp -v docs/js/* docs/html
+      - name: Deploy
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'EvilBot-bot/Barotrauma-lua-attempt' && success()
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          build-tasks: dotnet build Barotrauma/BarotraumaServer/WindowsServer.csproj
-          cleanup-tasks: dotnet clean Barotrauma/BarotraumaServer/WindowsServer.csproj
-          binaries: Barotrauma/bin/DebugWindows/netcoreapp3.1/DedicatedServer.dll
-          output-path: docs/api
-          user-email: csharp.doc.gen@gmail.com
-          user-name: C# Document Generator
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs
