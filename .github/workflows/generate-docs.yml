@@ -28,10 +28,6 @@ jobs:
       - name: Build docs
         run: ldoc . --fatalwarnings
 
-      - name: Copy assets
-        run: |
-          mkdir docs/html
-          cp -v docs/css/* docs/html
       - name: Deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'EvilBot-bot/Barotrauma-lua-attempt' && success()
         uses: peaceiris/actions-gh-pages@v3
