@@ -8,8 +8,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v2
-        with:
-          path: luaforbarotrauma
         
       - uses: leafo/gh-actions-lua@v8.0.0
         with:
@@ -28,11 +26,9 @@ jobs:
         run: luarocks make
 
       - name: Build docs
-        working-directory: luaforbarotrauma
         run: ldoc . --fatalwarnings
 
       - name: Copy assets
-        working-directory: luaforbarotrauma
         run: |
           cp -v docs/css/* docs/html
       - name: Deploy
