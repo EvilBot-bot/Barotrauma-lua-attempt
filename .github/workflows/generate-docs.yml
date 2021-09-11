@@ -34,7 +34,7 @@ jobs:
       - name: Copy assets
         working-directory: luaforbarotrauma
         run: |
-          cp -v docs/css/* docs/html
+          cp -v docs/* docs/html
       - name: Deploy
         if: github.event_name == 'push' && github.ref == 'refs/heads/master' && github.repository == 'EvilBot-bot/Barotrauma-lua-attempt' && success()
         uses: peaceiris/actions-gh-pages@v3
