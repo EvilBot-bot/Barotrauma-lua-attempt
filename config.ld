@@ -8,7 +8,6 @@ module_file = {
 }
 
 dir = "docs"
-source_dir = "docs"
 project = "Test"
 title = "Test 2"
 
