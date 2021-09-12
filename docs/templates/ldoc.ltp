@@ -33,8 +33,8 @@ local function moduleDescription(mod)
 	return mod.summary
 end
 %}
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<title>{{pageTitle}}</title>
 
