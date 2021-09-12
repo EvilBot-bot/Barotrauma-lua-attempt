@@ -1,0 +1,581 @@
+
+
+<html>
+	<head>
+		<title>Getting started - LuaForBarotrauma Documentation</title>
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Getting started - LuaForBarotrauma Documentation" />
+		<meta property="og:site_name" content="Helix Documentation" />
+
+			<meta property="og:description" content="
+
+If you want to learn how Lua works and the syntax, you can check these websites: [https:&#47;&#47;www.lua.org&#47;manual&#47;5.2&#47;](https:&#47;&#47;www.lua.org&#47;manual&#47;5.2&#47;) [https:&#47;&#47;www.tutorialspoint.com&#47;lua&#47;lua_overview.htm](https:&#47;&#47;www.tutorialspoint.com&#47;lua&#47;lua_overview.htm..." />
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" />
+		<link rel="stylesheet" href="../../ldoc.css" />
+		<link rel="stylesheet" href="../../highlight.css" />
+	</head>
+
+	<body>
+		<main>
+
+
+<nav>
+	<header>
+			<h1><a href="../../">Lua For Barotrauma Documentation</a></h1>
+		<input id="search" type="search" autocomplete="off" placeholder="Search..." />
+	</header>
+
+	<section>
+				<details class="category" open>
+					<summary>
+						<h2>Code</h2>
+					</summary>
+
+					<ul>
+							<li>
+									<details >
+									<summary><a href="../../code/character/">Character</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/character/#Create">
+Create											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/characterinfo/">CharacterInfo</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/characterinfo/#Create">
+Create											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/client/">Client</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/client/#Unban">
+Unban											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/client/#myClient.Ban">
+myClient.Ban											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/client/#myClient.CheckPermission">
+myClient.CheckPermission											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/client/#myClient.Kick">
+myClient.Kick											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/client/#myClient.SetClientCharacter">
+myClient.SetClientCharacter											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/file/">File</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#DirSearch">
+DirSearch											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#DirectoryExists">
+DirectoryExists											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#Exists">
+Exists											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#GetDirectories">
+GetDirectories											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#GetFiles">
+GetFiles											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#Read">
+Read											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/file/#Write">
+Write											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/game/">Game</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#AllowWifiChat">
+AllowWifiChat											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#DisableSpamFilter">
+DisableSpamFilter											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#DispatchRespawnSub">
+DispatchRespawnSub											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#ExecuteCommand">
+ExecuteCommand											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#Explode">
+Explode											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/game/#GetEnabledContentPackages">
+GetEnabledContentPackages											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/game/#GetEnabledPackagesDirectlyFromFile">
+GetEnabledPackagesDirectlyFromFile											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/game/#GetRespawnShuttle">
+GetRespawnShuttle											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#Log">
+Log											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#OverrideRespawnSub">
+OverrideRespawnSub											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#OverrideSignalRadio">
+OverrideSignalRadio											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#OverrideTraitors">
+OverrideTraitors											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#SendDirectChatMessage">
+SendDirectChatMessage											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#SendDirectChatMessage">
+SendDirectChatMessage											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#SendMessage">
+SendMessage											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#SendTraitorMessage">
+SendTraitorMessage											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/game/#StartGame">
+StartGame											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/hooks/">Hooks</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#Hook.Add">
+Hook.Add											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#Hook.Call">
+Hook.Call											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#Hook.Remove">
+Hook.Remove											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#afflictionApplied">
+afflictionApplied											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#afflictionUpdate">
+afflictionUpdate											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#changeFallDamage">
+changeFallDamage											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#characterCreated">
+characterCreated											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#characterDeath">
+characterDeath											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#chatMessage">
+chatMessage											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#clientConnected">
+clientConnected											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#clientDisconnected">
+clientDisconnected											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#gapOxygenUpdate">
+gapOxygenUpdate											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemApplyTreatment">
+itemApplyTreatment											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemDrop">
+itemDrop											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemEquip">
+itemEquip											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemSecondaryUse">
+itemSecondaryUse											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemUnequip">
+itemUnequip											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#itemUse">
+itemUse											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#roundEnd">
+roundEnd											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#roundStart">
+roundStart											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#serverLog">
+serverLog											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#signalReceived">
+signalReceived											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#signalReceived.YourComponentIdentifier">
+signalReceived.YourComponentIdentifier											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#think">
+think											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/hooks/#wifiSignalTransmitted">
+wifiSignalTransmitted											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/item/">Item</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/item/#AddToRemoveQueue">
+AddToRemoveQueue											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/item/#SendSignal">
+SendSignal											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/itemprefab/">ItemPrefab</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/itemprefab/#AddToSpawnQueue">
+AddToSpawnQueue											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/itemprefab/#AddToSpawnQueue">
+AddToSpawnQueue											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/itemprefab/#GetItemPrefab">
+GetItemPrefab											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/networking/">Networking</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/networking/#RequestGetHTTP">
+RequestGetHTTP											</a>
+										</li>
+										<li>
+											<span class="realm server"></span>
+											<a href="../../code/networking/#RequestPostHTTP">
+RequestPostHTTP											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/signal/">Signal</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/signal/#Create">
+Create											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/timer/">Timer</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/timer/#GetTime">
+GetTime											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+							<li>
+									<details >
+									<summary><a href="../../code/vectors/">Vectors</a></summary>
+
+									<ul>
+
+
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/vectors/#CreateVector2">
+CreateVector2											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/vectors/#CreateVector2">
+CreateVector2											</a>
+										</li>
+										<li>
+											<span class="realm shared"></span>
+											<a href="../../code/vectors/#CreateVector2">
+CreateVector2											</a>
+										</li>
+
+									</ul>
+									</details>
+							</li>
+					</ul>
+				</details>
+				<details class="category" open>
+					<summary>
+						<h2>Manual</h2>
+					</summary>
+
+					<ul>
+							<li>
+									<a href="../../manual/getting-started/">Getting started</a>
+
+
+
+							</li>
+							<li>
+									<a href="../../manual/installing-lua-for-barotrauma-manually/">Installing Lua For Barotrauma</a>
+
+
+
+							</li>
+							<li>
+									<a href="../../manual/lua-examples/">Lua Examples</a>
+
+
+
+							</li>
+					</ul>
+				</details>
+	</section>
+</nav>
+
+
+			<article>
+					<div class="wrapper">
+
+<h1>Getting started</h1>
+
+<p>If you want to learn how Lua works and the syntax, you can check these websites: <a href="https://www.lua.org/manual/5.2/">https://www.lua.org/manual/5.2/</a> <a href="https://www.tutorialspoint.com/lua/lua_overview.htm">https://www.tutorialspoint.com/lua/lua_overview.htm</a></p>
+
+<p><a name="How_mods_are_executed"></a></p>
+<h2>How mods are executed</h2>
+<p>When the server finishes loading everything, Lua For Barotrauma starts up and reads the file <code>Lua/MoonsharpSetup.lua</code> and executes it, this Lua script then looks for Mods in the Mods folder, and tries to execute Lua scripts inside the Lua/Autorun folder, so for example, if you have a Mod named TheTest, and inside this mod you have a file named Lua/Autorun/test.lua, the test.lua will be executed automatically.</p>
+
+<p><a name="Creating_your_first_mod"></a></p>
+<h2>Creating your first mod</h2>
+<p>When creating a new Lua mod, you will need to create a new folder on the <strong>Mods</strong> folder, then inside this folder you will need to create a folder called <strong>Lua</strong>, and then inside the Lua folder you create a folder called <strong>Autorun</strong>, inside this folder you can add your lua scripts that will be executed automatically, it will look something like this <code>Mods/MyMod/Lua/Autorun/test.lua</code></p>
+
+<p>Now you can open <strong>test.lua</strong> in your favorite text editor (vscode recommended) and type in <strong>print("Hello, world")</strong>, now start the server by hosting a game or running the server executable manually, you will see in your console a text appear with the text that you entered in print, you can now type in the server console reloadlua, this will re-execute all the Lua scripts. You can also type in lua (script) to run a short lua snippet, like this <code>lua print(&apos;Hello, world&apos;)</code>, remember to remove double quotes, because Barotrauma console automatically formats those.</p>
+
+<p><a name="Learning_the_libraries"></a></p>
+<h2>Learning the libraries</h2>
+<p>In the sidebar of the documentation, you can see a tab named Code, in there you can check out all the functions and fields that each class has, and learn more about them, but not everything is documented here, theres stuff missing that still needs to be added, if you want to find more in-depth functions and fields in the Barotrauma classes, you should check the Barotrauma source code.</p>
+
+					</div>
+			</article>
+		</main>
+
+		<script type="text/javascript" src="../../app.js"></script>
+		<script type="text/javascript" src="../../highlight.min.js"></script>
+		<script type="text/javascript">
+			var elements = document.querySelectorAll("pre code")
+
+			hljs.configure({
+				languages: ["lua"]
+			});
+
+			for (var i = 0; i < elements.length; i++)
+			{
+				hljs.highlightBlock(elements[i]);
+			}
+		</script>
+	</body>
+</html>

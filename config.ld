@@ -1,23 +1,24 @@
 
 file = {
-    "oba.lua"
+	"docs/lua"
 }
 
 module_file = {
-  
+
 }
 
-dir = "docs"
-project = "Test"
-title = "Test 2"
+dir = "docs/html"
+project = "LuaForBarotrauma"
+title = "LuaForBarotrauma Documentation"
 
 no_space_before_args = true
 style = "docs/css"
+template = "docs/templates"
 format = "markdown"
 ignore = true
 topics = "docs/manual"
 use_markdown_titles = true
-kind_names = {module = "Libraries", topic = "Manual"}
+kind_names = {module = "Classes", topic = "Manual"}
 merge = true
 sort = true
 sort_modules = true
@@ -46,24 +47,15 @@ custom_display_name_handler = function(item, default_handler)
 	return default_handler(item)
 end
 
-new_type("hooks", "Hooks", true)
-new_type("panel", "Panels", true)
 
--- helix types
-tparam_alias("char", "Character")
-tparam_alias("inventory", "Inventory")
-tparam_alias("item", "Item")
-tparam_alias("ixtype", "ix.type")
-tparam_alias("date", "date")
+new_type("code", "Code", true)
 
--- standard types
+tparam_alias("Client", "client")
+tparam_alias("Character", "character")
+tparam_alias("Submarine", "submarine")
+tparam_alias("Item", "item")
+
 tparam_alias("string", "string")
 tparam_alias("bool", "boolean")
-tparam_alias("func", "function")
-tparam_alias("player", "Player")
-tparam_alias("entity", "Entity")
-tparam_alias("color", "color")
+tparam_alias("function", "function")
 tparam_alias("tab", "table")
-tparam_alias("material", "material")
-tparam_alias("vector", "vector")
-tparam_alias("angle", "angle")

@@ -10,9 +10,9 @@
 	<h1 class="title">{{kind}}</h1>
 
 	{% for item in items() do %}
-		<section class="method">
+		<section class="method" id="{{item.name}}">
 			<header>
-				<a class="anchor" id="{{item.name}}">
+				<a class="anchor">
 					<h1>{* ldoc.realm_icon(item.tags.realm[1]) *}</span>{{ldoc.display_name(item)}}</h1>
 				</a>
 
