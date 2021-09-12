@@ -1,7 +1,7 @@
 
 :root {
-	--content-width: 1200px;
-	--sidebar-width: 330px;
+	--content-width: 100%;
+	--sidebar-width: 25%;
 
 	--padding-big: 48px;
 	--padding-normal: 24px;
@@ -17,15 +17,18 @@
 	--font-style-normal: Segoe UI, Helvetica, Arial, sans-serif;
 	--font-style-code: Consolas, monospace;
 
-	--color-accent: rgb(115, 53, 142);
-	--color-accent-dark: rgb(85, 39, 105);
+	--color-accent: rgb(47, 100, 74);
+	--color-accent-dark: rgb(33, 33, 33);
 	--color-white: rgb(255, 255, 255);
 	--color-offwhite: rgb(200, 200, 200);
 	--color-white-accent: rgb(203, 190, 209);
 	--color-black: rgb(0, 0, 0);
 	--color-lightgrey: rgb(160, 160, 160);
-	--color-background-light: rgb(240, 240, 240);
+	--color-background-light: rgb(245, 245, 245);
 	--color-background-dark: rgb(33, 33, 33);
+	--color-background-dark-ish: rgb(44, 44, 44);
+	--color-outline: rgb(149, 34, 160);
+	--color-good: rgb(204, 34, 34);
 }
 
 * {
@@ -35,7 +38,7 @@
 }
 
 body {
-	background-color: var(--color-background-light);
+	background-color: var(--color-background-dark);
 	font-family: var(--font-style-normal);
 
 	display: flex;
@@ -92,11 +95,11 @@ code {
 	tab-size: 4;
 	-moz-tab-size: 4;
 	padding: 2px 4px;
-	background-color: rgb(33, 33, 33, 0.1);
+	background-color: rgba(33, 33, 33, 0.1);
 }
 
 pre {
-	background-color: rgb(33, 33, 33, 0.1);
+	background-color: rgb(99, 99, 99, 0.1);
 	margin-top: var(--padding-small);
 	padding: var(--padding-tiny);
 	overflow: auto;
@@ -252,8 +255,8 @@ nav section details.category summary h2 {
 
 /* content */
 article {
-	background-color: rgb(255, 255, 255);
-
+	background-color: var(--color-background-dark-ish);
+	color: white;
 	width: calc(100% - var(--sidebar-width));
 	min-height: 100vh;
 	margin-left: var(--sidebar-width);
@@ -266,7 +269,7 @@ article .wrapper > *:first-child {
 /* header */
 article header {
 	color: rgb(255, 255, 255);
-	background-color: rgb(115, 53, 142);
+	background-color: var(--color-accent);
 	padding: var(--padding-tiny);
 }
 
@@ -313,7 +316,7 @@ article h2 {
 }
 
 article h3 {
-	color: rgb(115, 53, 142);
+	color: var(--color-good);
 	margin-top: var(--padding-tiny);
 	text-transform: uppercase;
 }
@@ -326,13 +329,13 @@ article p a,
 article ul li a,
 article h1 a,
 article h2 a {
-	color: rgb(115, 53, 142);
+	color: var(--color-good);
 	font-weight: 600;
 }
 
 article h1.title {
 	color: rgb(255, 255, 255);
-	background-color: rgb(115, 53, 142);
+	background-color: var(--color-accent);
 	margin-top: var(--padding-small);
 	margin-bottom: 0;
 	padding: var(--padding-tiny);
@@ -344,7 +347,7 @@ article h1.title {
 }
 
 a.reference {
-	color: rgb(115, 53, 142);
+	color: var(--color-good);
 	float: right;
 	margin-top: 8px;
 	padding-left: 8px;
@@ -391,13 +394,12 @@ a.reference {
 .method {
 	display: flex;
 	flex-flow: column;
-	background-color: rgb(230, 230, 230);
 	padding: var(--padding-tiny);
 	margin-top: var(--padding-small);
 }
 
 .method header {
-	color: rgb(0, 0, 0);
+	color: white;
 	background-color: inherit;
 	padding: 0;
 	order: -1;
@@ -408,15 +410,22 @@ a.reference {
 	text-decoration: inherit;
 }
 
-.method header .anchor:target h1 {
-	background-color: rgba(115, 53, 142, 0.2);
-	background-clip: content-box;
+.method:target {
+	background-color: var(--color-background-dark);
+
+	outline: solid;
+	outline-width: 1px;
+	outline-color: var(--color-accent);
+}
+
+.method header:target {
+	background-color: var(--color-accent);
 }
 
 .method header h1 {
 	font-family: "Source Code Pro", monospace;
 	padding-bottom: var(--padding-tiny);
-	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	border-bottom: 1px solid var(--color-accent);
 	font-size: 20px;
 }
 
@@ -425,7 +434,7 @@ a.reference {
 }
 
 .method h3 {
-	color: rgb(115, 53, 142);
+	color: var(--color-good);
 	font-size: var(--font-normal);
 	letter-spacing: 2px;
 	text-transform: uppercase;
